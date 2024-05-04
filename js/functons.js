@@ -2,13 +2,14 @@ function openModal(is_black_list) {
     const modal = document.querySelector('.modal');
     const closeButton = modal.querySelector('.close-button');
     const switchButtonsBlock = modal.querySelector('.switch-buttons');
-
     const blackList = modal.querySelector('.black-list');
     const whiteList = modal.querySelector('.white-list');
     const blackListTitle = modal.querySelector('.title-black');
     const whiteListTitle = modal.querySelector('.title-white');
 
     modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'
+    document.body.style.paddingRight = '15px'
     setTimeout(() => {
         modal.classList.add('modal--active');
     }, 10)
@@ -16,12 +17,8 @@ function openModal(is_black_list) {
     closeButton.addEventListener('click', () => {
         modal.classList.remove('modal--active');
         setTimeout(() => {
+            deactivateLists(blackList, whiteList)
             modal.style.display = 'none';
-            blackList.classList.remove('black-list-hidden');
-            whiteList.classList.remove('white-list-hidden');
-            blackListTitle.classList.remove('title-black--active');
-            whiteListTitle.classList.remove('title-white--active');
-            switchButtonsBlock.classList.remove('white--active');
 
         }, 200)
     })
@@ -44,14 +41,11 @@ function openModal(is_black_list) {
 
 function activateLists(is_black_list, b_list, w_list, b_list_title, w_list_title, sw_buttons_block) {
     if (is_black_list) {
-        display
-        w_list.classList.add('white-list-hidden')
-        b_list_title.classList.add('title-black--active')
+        b_list.style.display = 'flex'
         sw_buttons_block.style.background = `linear-gradient(150deg, rgba(0,0,0,1) 75%,  rgba(255,255,255,1) 100%)`
 
     } else {
-        w_list_title.classList.add('title-white--active')
-        b_list.classList.add('black-list-hidden')
+        w_list.style.display = 'flex'
         sw_buttons_block.classList.add('white--active')
         sw_buttons_block.style.background = `linear-gradient(150deg, rgba(0,0,0,1) 10%,  rgba(255,255,255,1) 100%)`
 
@@ -59,7 +53,10 @@ function activateLists(is_black_list, b_list, w_list, b_list_title, w_list_title
 }
 
 function deactivateLists(b_list, w_list) {
-
+    b_list.style.display = 'none'
+    w_list.style.display = 'none'
+    document.body.style.paddingRight = ''
+    document.body.style.overflow = ''
 }
 
 function moveGrad(is_black, btn_block, b_list, w_list) {
@@ -85,4 +82,7 @@ function moveGrad(is_black, btn_block, b_list, w_list) {
     }
 }
 
+function conveyor(par_block) {
+    
+}
 export {openModal}
