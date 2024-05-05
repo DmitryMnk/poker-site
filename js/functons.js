@@ -1,5 +1,3 @@
-
-
 function activateLists(is_black_list, b_list, w_list, b_list_title, w_list_title, sw_buttons_block) {
     if (is_black_list) {
         b_list.classList.add('black-list--active')
@@ -55,19 +53,27 @@ function switchList(b_list, w_list, b_list_title, w_list_title, sw_buttons_block
     if (b_list.classList.contains('black-list--active')) {
         moveGrad(false, sw_buttons_block)
         b_list.classList.remove('black-list--active');
-        w_list.style.display = 'flex';
         setTimeout(() => {
+            w_list.style.display = 'flex';
             b_list.style.display = 'none';
-            w_list.classList.add('white-list--active');
         }, 200)
+        
+        setTimeout(() => {
+            
+            w_list.classList.add('white-list--active');
+        }, 210)
     } else {
         moveGrad(true, sw_buttons_block)
         w_list.classList.remove('white-list--active');
-        b_list.style.display = 'flex';
+        
         setTimeout(() => {
+            b_list.style.display = 'flex';
             w_list.style.display = 'none';
-            b_list.classList.add('black-list--active');
         }, 200)
+        setTimeout(() => {
+            
+            b_list.classList.add('black-list--active');
+        }, 210)
     }
     b_list_title.classList.toggle('title-black--active')
     w_list_title.classList.toggle('title-white--active')
@@ -113,6 +119,11 @@ function openModal(is_black_list) {
         }
         
     })
+}
+
+function conveyor(par_block, direction_right=true) {
+    const conveyor = par_block.querySelector('.conveyor--wrapper');
+
 }
 
 export {openModal}
