@@ -44,6 +44,13 @@ body {
     color: inherit;
 }
 
+.section-title {
+    font-size: 36px;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 /*-= HEADER =-*/
 
 .header {
@@ -98,6 +105,10 @@ body {
 .header__nav-link:focus {
     outline: none;
     box-shadow: 0 5px 10px 1px rgba(255, 255, 255, 0.5);
+}
+
+#header-lists {
+    cursor: pointer;
 }
 
 /*-= BANNER =-*/
@@ -284,8 +295,9 @@ body {
 }
 
 .white-list-button {
-    background-color: #ffffff;
+    background-color: #a0a0a0;
     color: #000000;
+    border: 1px solid #fff;
     background-image: url('../img/1920/content/w_list.png');
 }
 
@@ -323,15 +335,9 @@ body {
     background-position: top right;
 }
 
-.section-title {
-    font-size: 36px;
-    color: #a0a0a0;
-    margin-bottom: 30px;
-
-}
-
 .about__bottom-block {
     width: 70%;
+    color: #a0a0a0;
     font-size: 26px;
     min-height: 150px;
     padding-left: 150px;
@@ -695,7 +701,7 @@ body {
     cursor: pointer;
     display: flex;
     position: absolute;
-    padding-left: 60px;
+    padding-left: 80px;
     height: 80px;
     align-items: center;
     justify-content: center;
@@ -756,13 +762,19 @@ body {
     width: 100%;
     right: 0;
     transform: translate(0);
-    opacity: 1;
+    opacity: 0;
+    transform: scale(0);
     flex-direction: column;
     border: 2px solid #5f5f5f;
     border-radius: 10px;
     transition: right 200ms ease-in-out,
                 transform 100ms ease-in-out,
                 opacity 200ms ease-in-out;
+}
+
+.black-list--active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .black-list-hidden {
@@ -802,9 +814,10 @@ body {
 
 .white-list {
     max-width: 900px;
-    opacity: 1;
+    opacity: 0;
     display: none;
     margin: 0 auto;
+    transform: scaleX(0);
     width: 100%;
     left: calc(50% - 450px);
     flex-direction: column;
@@ -813,6 +826,11 @@ body {
     transition: left 200ms ease-in-out,
                 transform 200ms ease-in-out,
                 opacity 200ms ease-in-out;
+}
+
+.white-list--active {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .white-list-hidden {
@@ -848,9 +866,5 @@ body {
 
 .white-list-item-block:not(:nth-of-type(5n)) {
     border-right: 1px solid #998f82;
-}
-
-.white-list--active {
-    max-width: 900px;
 }
 
