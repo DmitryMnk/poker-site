@@ -24,8 +24,8 @@ if (screen.availWidth > 1200) {
     slides = 5;
 } else if (screen.availWidth > 768) {
     slides = 4;
-} else if (screen.availWidth > 768) {
-    slides = 3;
+} else if (screen.availWidth > 576) {
+    slides = 2;
 } else {
     slides = 1;
 }

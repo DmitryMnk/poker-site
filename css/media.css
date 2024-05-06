@@ -36,7 +36,6 @@
         padding-bottom: 20px;
         padding-right: 30px;
         display: flex;
-        justify-content: flex-end;
     }
 
     .header__burger {
@@ -50,12 +49,12 @@
         align-items: flex-end;
         position: absolute;
         background-color: #161616;
-        right: 0;
+        left: 0;
         top: 0;
         transform: translateY(-550px);
         width: 70%;
         height: 500px;
-        border-radius: 0 0 0px 20px;
+        border-radius: 0 0 20px 0px;
         box-shadow: 0px 0px 10px 5px #A48E7F;
     }
 
@@ -64,6 +63,7 @@
         border-top: 1px solid #A48E7F ;
         flex-direction: column;
         justify-content: flex-end;
+        align-items: flex-end;
         height: calc(100% - 69px);
     }
 
@@ -77,6 +77,7 @@
 
     .header__nav-list-item:not(:last-child) {
         margin-bottom: 40px;
+        margin-right: 0;
     }
 
     .header-nav--active {
