@@ -1,5 +1,5 @@
 import { openModal } from "./functons.js";
-import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+import Swiper from '../package/swiper-bundle.min.mjs'
 
 function toggle(burger, nav, animation) {
     if (!animation) {
@@ -31,7 +31,6 @@ if (screen.availWidth > 1200) {
 }
 
 document.addEventListener('click', (e) => {
-    console.log(screen.availWidth > 5)
     if (headerBurgerButton.classList.contains('burger--active') && !animationStop) {
         if (!burgerNav.contains(e.target)) {
             toggle(headerBurgerButton, burgerNav, animationStop);
